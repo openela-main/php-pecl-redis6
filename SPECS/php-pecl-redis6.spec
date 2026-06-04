@@ -26,7 +26,7 @@
 %bcond_with          msgpack
 %bcond_with          liblzf
 %endif
-%if 0%{?fedora} >= 41 || 0%{?rhel} >= 10
+%if 0%{?fedora} >= 41 || 0%{?rhel} >= 9
 %bcond_without       valkey
 %else
 %bcond_with          valkey
@@ -43,7 +43,7 @@
 Summary:       PHP extension for interfacing with key-value stores
 Name:          php-pecl-redis6
 Version:       %{upstream_version}%{?upstream_prever:~%{upstream_prever}}
-Release:       2%{?dist}
+Release:       3%{?dist}
 License:       PHP-3.01
 URL:           https://pecl.php.net/package/redis
 Source0:       https://pecl.php.net/get/%{sources}.tgz
@@ -293,6 +293,9 @@ exit $ret
 
 
 %changelog
+* Tue Jun  2 2026 Remi Collet <rcollet@redhat.com> - 6.1.0-3
+- use valkey for tests
+
 * Wed Nov 20 2024 Remi Collet <rcollet@redhat.com> - 6.1.0-2
 - ignore 1 ONLINE test
 
